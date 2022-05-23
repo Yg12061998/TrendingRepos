@@ -1,18 +1,26 @@
 package com.yogigupta1206.trendingrepos
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.yogigupta1206.trendingrepos.ui.main.MainFragment
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import com.yogigupta1206.trendingrepos.databinding.ActivityMainBinding
+import com.yogigupta1206.trendingrepos.ui.main.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
-        }
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
+
+        initializeData()
+    }
+
+    private fun initializeData() {
+        TODO("Not yet implemented")
     }
 }
