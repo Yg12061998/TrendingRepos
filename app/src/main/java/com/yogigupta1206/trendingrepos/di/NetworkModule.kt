@@ -1,6 +1,5 @@
 package com.yogigupta1206.trendingrepos.di
 
-import androidx.databinding.ktx.BuildConfig
 import com.yogigupta1206.trendingrepos.data.network.ApiService
 import com.yogigupta1206.trendingrepos.utils.BASE_URL
 import com.yogigupta1206.trendingrepos.utils.NETWORK_UNKNOWN_ERROR
@@ -43,10 +42,8 @@ class NetworkModule {
             .connectTimeout(120, TimeUnit.SECONDS)
             .retryOnConnectionFailure(true)
             .addInterceptor(headerInterceptor)
+        loggingInterceptor.let { okHttpClient.addInterceptor(it) }
 
-        if (BuildConfig.DEBUG) {
-            loggingInterceptor.let { okHttpClient.addInterceptor(it) }
-        }
 
         return okHttpClient.build()
     }

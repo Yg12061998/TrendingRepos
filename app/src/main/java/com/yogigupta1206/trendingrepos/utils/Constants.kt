@@ -1,6 +1,4 @@
 package com.yogigupta1206.trendingrepos.utils
 
-const val BASE_URL = "https://ghapi.huchen.dev/"
+const val BASE_URL = "https://private-anon-05676e78c8-githubtrendingapi.apiary-mock.com/"
 const val NETWORK_UNKNOWN_ERROR = 418
-const val CALL_DEVELOPER = "tel: +919179349593"
-const val CALL_REQUEST = 101

@@ -8,13 +8,13 @@ import java.lang.reflect.Type
 
 class TypeConvertorHelper{
     @TypeConverter
-    fun stringToBuiltByList(data: String?): List<BuiltBy>? {
+    fun stringToBuiltByList(data: String?): ArrayList<BuiltBy>? {
         val listType: Type = object : TypeToken<ArrayList<BuiltBy?>?>() {}.type
         return Gson().fromJson(data, listType)
     }
 
     @TypeConverter
-    fun builtByListToString(someObjects: List<BuiltBy>?): String? {
+    fun builtByListToString(someObjects: ArrayList<BuiltBy>?): String? {
         return Gson().toJson(someObjects)
     }
 }
