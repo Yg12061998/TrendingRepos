@@ -13,7 +13,6 @@ import com.yogigupta1206.trendingrepos.ui.adapter.RepositoryAdapter
 import com.yogigupta1206.trendingrepos.utils.hide
 import com.yogigupta1206.trendingrepos.utils.show
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 
 @AndroidEntryPoint
@@ -80,6 +79,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun filterData(text: String?) {
         val filteredList = viewModel.filter(text.toString())
+        mBinding.recyclerView.layoutManager?.scrollToPosition(0)
         reposAdapter?.submitList(filteredList)
     }
 
