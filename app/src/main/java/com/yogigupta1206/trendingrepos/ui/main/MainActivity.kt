@@ -29,8 +29,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         setObservers()
         setAdapter()
+        setRefreshListener()
+        setOnClickListener()
         viewModel.init()
 
+    }
+
+    private fun setOnClickListener() {
+        mBinding.btnTryAgain.setOnClickListener {
+            viewModel.retry()
+        }
+    }
+
+    private fun setRefreshListener() {
+        mBinding.refreshLayout.setOnRefreshListener {
+            reposAdapter?.submitList(mutableListOf())
+            viewModel.retry()
+            mBinding.refreshLayout.isRefreshing = false
+        }
     }
 
     private fun setAdapter() {

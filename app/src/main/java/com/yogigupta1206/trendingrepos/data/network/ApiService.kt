@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/repositories?language=&since=daily&spoken_language_code=")
+    @GET("/repositories?language=&since=monthly&spoken_language_code=")
     suspend fun getProfiles(): Response<ArrayList<Repos>>
 
 }

@@ -1,6 +1,5 @@
 package com.yogigupta1206.trendingrepos.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,14 +15,14 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class MainViewModel@Inject constructor(
+class MainViewModel @Inject constructor(
     private val repository: ReposRepositories
 ) : ViewModel() {
 
-    sealed class UiState{
-        object Loading: UiState()
-        object LoadingFinish: UiState()
-        object ErrorState: UiState()
+    sealed class UiState {
+        object Loading : UiState()
+        object LoadingFinish : UiState()
+        object ErrorState : UiState()
     }
 
     val uiState: LiveData<UiState> get() = _uiState
@@ -34,24 +33,24 @@ class MainViewModel@Inject constructor(
 
     private var reposData = arrayListOf<Repos>()
 
-    fun init(){
+    fun init() {
         _uiState.value = UiState.Loading
-        if(reposData.isEmpty()){
+        if (reposData.isEmpty()) {
             viewModelScope.launch {
-                val data = withContext(Dispatchers.IO){ repository.getReposData() }
+                val data = withContext(Dispatchers.IO) { repository.getReposData() }
                 _uiState.value = UiState.LoadingFinish
-                if(data.isNotEmpty()){
-                    data.let{
+                if (data.isNotEmpty()) {
+                    data.let {
                         reposData.clear()
                         reposData.addAll(it)
                         _repos.value = it
                     }
-                }else{
+                } else {
                     _uiState.postValue(UiState.ErrorState)
                 }
             }
 
-        }else{
+        } else {
             _uiState.postValue(UiState.LoadingFinish)
             _repos.value = reposData
         }
@@ -61,15 +60,34 @@ class MainViewModel@Inject constructor(
     fun filter(text: String): MutableList<Repos> {
         val filteredList = mutableListOf<Repos>()
 
-        if(text.isBlank())
+        if (text.isBlank())
             return reposData
 
         for (item in reposData) {
-            if (item.name.lowercase(Locale.getDefault()).contains(text.lowercase(Locale.getDefault()))) {
+            if (item.name.lowercase(Locale.getDefault())
+                    .contains(text.lowercase(Locale.getDefault()))
+            ) {
                 filteredList.add(item)
             }
         }
         return filteredList
+    }
+
+    fun retry() {
+        _uiState.value = UiState.Loading
+        viewModelScope.launch {
+            val data = withContext(Dispatchers.IO) { repository.getDataOnline() }
+            _uiState.value = UiState.LoadingFinish
+            if (data?.isNotEmpty() == true) {
+                data.let {
+                    reposData.clear()
+                    reposData.addAll(it)
+                    _repos.value = it
+                }
+            } else {
+                _uiState.postValue(UiState.ErrorState)
+            }
+        }
     }
 
 }

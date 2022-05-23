@@ -34,7 +34,7 @@ class ReposRepositories @Inject constructor(
         return false
     }
 
-    private suspend fun getDataOnline(): ArrayList<Repos>? {
+    suspend fun getDataOnline(): ArrayList<Repos>? {
         return when(val testData = getDataFromNetwork()){
             is NetworkResult.Success ->{
                 testData.responseData?.let {
