@@ -1,5 +1,6 @@
 package com.yogigupta1206.trendingrepos.data.network.model.repos
 
+import androidx.room.PrimaryKey
 import com.yogigupta1206.trendingrepos.data.database.model.repos.BuiltBy
 
 data class Repos(
