@@ -19,9 +19,6 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
 
-/**
- * Created by Yogesh.
- */
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
