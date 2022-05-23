@@ -3,7 +3,7 @@ package com.yogigupta1206.trendingrepos.data.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.yogigupta1206.trendingrepos.data.database.model.repos.Repos
+import com.yogigupta1206.trendingrepos.data.model.repos.Repos
 import com.yogigupta1206.trendingrepos.utils.TypeConvertorHelper
 
 @Database(

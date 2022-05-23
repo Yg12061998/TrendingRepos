@@ -1,6 +1,6 @@
 package com.yogigupta1206.trendingrepos.data.network
 
-import com.yogigupta1206.trendingrepos.data.database.model.repos.Repos
+import com.yogigupta1206.trendingrepos.data.model.repos.Repos
 import retrofit2.Response
 import retrofit2.http.GET
 

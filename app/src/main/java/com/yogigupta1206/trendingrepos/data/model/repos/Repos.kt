@@ -1,4 +1,4 @@
-package com.yogigupta1206.trendingrepos.data.database.model.repos
+package com.yogigupta1206.trendingrepos.data.model.repos
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
