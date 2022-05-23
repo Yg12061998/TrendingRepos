@@ -13,5 +13,6 @@
     <string name="fragment_title">Trending Repositories</string>
     <string name="profile_clicked">%s clicked!</string>
     <string name="instructions">Hello User! \n\n1. Top left Corner has <b>Menu</b> Icon\n\t\t\ta. <b>Call Developer</b> opens developer number.\n\t\t\tb. <b>Exit</b> button close the Application.\n2. <b>Show Profiles</b> Button will show Profiles list.</string>
+    <string name="bullet">•</string>
 
 </resources>

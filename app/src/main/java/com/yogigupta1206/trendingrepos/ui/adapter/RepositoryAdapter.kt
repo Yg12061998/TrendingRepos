@@ -1,6 +1,7 @@
 package com.yogigupta1206.trendingrepos.ui.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -38,6 +39,7 @@ class RepositoryAdapter : RecyclerView.Adapter<RepositoryAdapter.DataViewHolder>
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(newList: MutableList<Repos>){
+        Log.d("testing", "$newList")
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()

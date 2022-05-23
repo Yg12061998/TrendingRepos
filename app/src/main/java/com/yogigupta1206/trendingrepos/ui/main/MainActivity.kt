@@ -1,6 +1,7 @@
 package com.yogigupta1206.trendingrepos.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
@@ -48,12 +49,15 @@ class MainActivity : AppCompatActivity() {
                     mBinding.progress.hide()
                 }
                 is MainViewModel.UiState.ErrorState -> {
-                    //TODO
+                    mBinding.btnTryAgain.show()
+                    mBinding.txtNoNetwork.show()
                 }
             }
         }
 
         viewModel.repos.observe(this) {
+            mBinding.btnTryAgain.hide()
+            mBinding.txtNoNetwork.hide()
             reposAdapter?.submitList(it)
         }
     }

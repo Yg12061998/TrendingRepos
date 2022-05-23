@@ -1,5 +1,6 @@
 package com.yogigupta1206.trendingrepos.utils
 
+import android.graphics.Color
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
@@ -15,8 +16,11 @@ fun AppCompatImageView.setAvatar(url:String?){
 }
 
 @BindingAdapter("setColor")
-fun TextView.setColor(url:String?){
-    url?.let {
-        this.setColor(url)
+fun TextView.setColor(colorCode:String?){
+
+    if(colorCode.isNullOrBlank()){
+        setTextColor(Color.parseColor("#000000"))
+    }else{
+        setTextColor(Color.parseColor(colorCode))
     }
 }

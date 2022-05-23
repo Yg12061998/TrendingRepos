@@ -75,13 +75,12 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    setColor="@{data.languageColor}"
                     android:layout_marginTop="-15dp"
-                    android:text="\u2022"
+                    android:text="@string/bullet"
                     android:gravity="center"
                     android:textSize="@dimen/sp_40"
                     android:id="@+id/language_color"
-                    style="@style/normal16black70"
-                    setColor = "@{data.languageColor}"
                     app:layout_constraintTop_toBottomOf="@id/description"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_width="wrap_content"
@@ -104,7 +103,7 @@
                     tools:text="100"
                     android:id="@+id/stars"
                     style="@style/bold16black40"
-                    android:text="@{data.stars}"
+                    android:text="@{data.stars.toString()}"
                     app:layout_constraintTop_toTopOf="@id/language_color"
                     app:layout_constraintBottom_toBottomOf="@id/language_color"
                     app:layout_constraintEnd_toEndOf="parent"
