@@ -7,7 +7,7 @@ It is an Demo Android App which uses Retrofit, Room Libarary to fetch and store 
 
 ## Instructions
 
-1. When opens the app, it directly fetch trending repos from provided API in assignment.
+1. When opens the app, it directly fetch trending repos from provided API.
 2. When You force refresh by pulling then, it clears the previous store data from database. It is forced refresh so need data to get results.
 3. If there is no internet or network issue, then it shows No Newtork Screen with Try Again Button.
 
